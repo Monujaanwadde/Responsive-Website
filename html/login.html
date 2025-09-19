@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Form</title>
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      background: url("../backimg/formimg.jpg") no-repeat center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: -1;
+    }
+
+    .form_login {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(16px);
+      border-radius: 20px;
+      padding: 35px 30px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      animation: fadeIn 0.6s ease;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .form_close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 22px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+      padding: 4px 9px;
+      transition: all 0.3s ease;
+    }
+
+    .form_close:hover {
+      transform: rotate(90deg);
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .form_login h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .input_box {
+      margin-bottom: 22px;
+      position: relative;
+    }
+
+    .input_box input {
+      width: 100%;
+      padding: 14px 45px 14px 18px;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      outline: none;
+      background: rgba(255, 255, 255, 0.18);
+      color: #fff;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .input_box input::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .input_box input:focus {
+      background: rgba(255, 255, 255, 0.25);
+      box-shadow: 0 0 0 2px #3b82f6;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .input_box input.valid {
+      box-shadow: 0 0 0 2px #22c55e;
+      border-color: #22c55e;
+    }
+
+    .input_box input.invalid {
+      box-shadow: 0 0 0 2px #ef4444;
+      border-color: #ef4444;
+    }
+
+    .password-wrapper {
+      position: relative;
+    }
+
+    .password-wrapper input {
+      padding-right: 45px;
+    }
+
+    .password-wrapper .pw_hide {
+      position: absolute;
+      top: 50%;
+      right: 15px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 20px;
+      color: #ffffff;
+      transition: color 0.3s ease;
+    }
+
+    .password-wrapper .pw_hide:hover {
+      color: #3b82f6;
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 13px;
+      margin-top: 6px;
+      display: none;
+      font-weight: 500;
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+      font-size: 14px;
+    }
+
+    .remember-forgot label {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .remember-forgot input[type="checkbox"] {
+      margin-right: 8px;
+      width: 16px;
+      height: 16px;
+      accent-color: #3b82f6;
+      cursor: pointer;
+    }
+
+    .remember-forgot a {
+      color: #64ffda;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .remember-forgot a:hover {
+      color: #1de9b6;
+      text-decoration: underline;
+    }
+
+    .form_login .button {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      padding: 14px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form_login .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+    }
+
+    .form_login .button:active {
+      transform: translateY(-1px);
+    }
+
+    .button .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: #fff;
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .login_link {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    .login_link a {
+      color: #64ffda;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .login_link a:hover {
+      color: #1de9b6;
+      text-decoration: underline;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      padding: 16px 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      transform: translateX(400px);
+      transition: transform 0.4s ease;
+      z-index: 1000;
+      max-width: 350px;
+    }
+
+    .toast.show {
+      transform: translateX(0);
+    }
+
+    .toast.success {
+      border-left: 4px solid #22c55e;
+    }
+
+    .toast.error {
+      border-left: 4px solid #ef4444;
+    }
+
+    .toast-icon {
+      margin-right: 12px;
+      font-size: 20px;
+    }
+
+    .toast.success .toast-icon {
+      color: #22c55e;
+    }
+
+    .toast.error .toast-icon {
+      color: #ef4444;
+    }
+
+    .toast-message {
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .form_login {
+        max-width: 90%;
+        margin: 0 15px;
+        padding: 25px 20px;
+        border-radius: 16px;
+      }
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .input_box {
+        margin-bottom: 18px;
+      }
+
+      .input_box input {
+        font-size: 14px;
+        padding: 12px 40px 12px 15px;
+      }
+
+      .remember-forgot {
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .form_login .button {
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      .form_close {
+        top: 12px;
+        right: 12px;
+        font-size: 18px;
+        padding: 3px 7px;
+      }
+
+      .login_link {
+        font-size: 13px;
+        margin-top: 15px;
+      }
+
+      .toast {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="form_login">
+    <i class="uil uil-times form_close" id="formClose" aria-label="Close form"></i>
+    <form id="loginForm" novalidate>
+      <h2>Welcome Back</h2>
+
+      <div class="input_box">
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required aria-describedby="emailError" />
+        <div class="error" id="emailError" role="alert">Please enter a valid email address</div>
+      </div>
+
+      <div class="input_box">
+        <div class="password-wrapper">
+          <input type="password" id="password" name="password" placeholder="Enter your password" required aria-describedby="passError" />
+          <i class="uil uil-eye-slash pw_hide" aria-label="Toggle password visibility"></i>
+        </div>
+        <div class="error" id="passError" role="alert">Password is required</div>
+      </div>
+
+      <div class="remember-forgot">
+        <label>
+          <input type="checkbox" id="remember" name="remember" />
+          Remember me
+        </label>
+        <a href="#" id="forgotPassword">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="button" id="submitBtn">
+        <span id="btnText">Login</span>
+        <div class="spinner" id="btnSpinner"></div>
+      </button>
+
+      <div class="login_link">
+        Don't have an account? <a href="register.html">Register</a>
+      </div>
+    </form>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <div class="toast-icon" id="toastIcon"></div>
+    <div class="toast-message" id="toastMessage"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("loginForm");
+      const email = document.getElementById("email");
+      const password = document.getElementById("password");
+      const remember = document.getElementById("remember");
+      const formClose = document.getElementById("formClose");
+      const submitBtn = document.getElementById("submitBtn");
+      const btnText = document.getElementById("btnText");
+      const btnSpinner = document.getElementById("btnSpinner");
+      const forgotPassword = document.getElementById("forgotPassword");
+      
+      // Toast notification elements
+      const toast = document.getElementById("toast");
+      const toastIcon = document.getElementById("toastIcon");
+      const toastMessage = document.getElementById("toastMessage");
+
+      // Check for saved credentials
+      const savedEmail = localStorage.getItem("rememberedEmail");
+      if (savedEmail) {
+        email.value = savedEmail;
+        remember.checked = true;
+      }
+
+      // Show toast notification
+      function showToast(message, type = "success") {
+        toastMessage.textContent = message;
+        toast.className = "toast show";
+        
+        if (type === "success") {
+          toast.classList.add("success");
+          toastIcon.innerHTML = '<i class="uil uil-check-circle"></i>';
+        } else {
+          toast.classList.add("error");
+          toastIcon.innerHTML = '<i class="uil uil-exclamation-circle"></i>';
+        }
+        
+        // Auto hide after 4 seconds
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 4000);
+      }
+
+      const validators = {
+        email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v),
+        password: v => v.trim().length > 0
+      };
+
+      function resetOrValidate(el, validator, errorEl) {
+        el.addEventListener("input", e => {
+          const val = e.target.value.trim();
+          if (val.length === 0) {
+            e.target.classList.remove("valid", "invalid");
+            errorEl.style.display = "none";
+            return;
+          }
+          const valid = validator(val);
+          e.target.classList.toggle("valid", valid);
+          e.target.classList.toggle("invalid", !valid);
+          errorEl.style.display = valid ? "none" : "block";
+        });
+      }
+
+      resetOrValidate(email, validators.email, document.getElementById("emailError"));
+      resetOrValidate(password, validators.password, document.getElementById("passError"));
+
+      document.querySelectorAll(".pw_hide").forEach(icon => {
+        icon.addEventListener("click", () => {
+          const input = icon.previousElementSibling;
+          input.type = input.type === "password" ? "text" : "password";
+          icon.classList.toggle("uil-eye");
+          icon.classList.toggle("uil-eye-slash");
+        });
+      });
+
+      formClose.addEventListener("click", () => window.location.href = "../index.html");
+
+      // Handle forgot password
+      forgotPassword.addEventListener("click", (e) => {
+        e.preventDefault();
+        showToast("Password reset link sent to your email", "success");
+      });
+
+      form.addEventListener("submit", async e => {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.disabled = true;
+        btnText.style.display = "none";
+        btnSpinner.style.display = "block";
+        
+        // Simulate API call delay
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Validate all fields
+        const emailValid = validators.email(email.value.trim());
+        const passValid = validators.password(password.value.trim());
+
+        if (!emailValid) { 
+          document.getElementById("emailError").style.display = "block"; 
+          email.classList.add("invalid"); 
+        }
+        if (!passValid) { 
+          document.getElementById("passError").style.display = "block"; 
+          password.classList.add("invalid"); 
+        }
+        
+        if (!emailValid || !passValid) {
+          // Reset button state
+          submitBtn.disabled = false;
+          btnText.style.display = "block";
+          btnSpinner.style.display = "none";
+          
+          showToast("Please fix the errors in the form", "error");
+          return;
+        }
+
+        // Handle remember me
+        if (remember.checked) {
+          localStorage.setItem("rememberedEmail", email.value);
+        } else {
+          localStorage.removeItem("rememberedEmail");
+        }
+
+        // Simulate successful login
+        showToast("Login successful! Redirecting...", "success");
+        
+        // Reset form
+        form.reset();
+        document.querySelectorAll("input").forEach(el => el.classList.remove("valid", "invalid"));
+        
+        // Reset button state
+        submitBtn.disabled = false;
+        btnText.style.display = "block";
+        btnSpinner.style.display = "none";
+        
+        // Redirect after delay
+        setTimeout(() => {
+          window.location.href = "../dashboard.html"; // Change to your dashboard page
+        }, 2000);
+      });
+    });
+  </script>
+</body>
+
+</html>
