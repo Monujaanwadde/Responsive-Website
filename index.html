@@ -9,7 +9,8 @@
   <meta name="author" content="Monujaan Wadde" />
   <meta name="keywords" content="developer, designer, portfolio, freelance">
   <link rel="icon" href="./backimg/girl1.png" type="image/x-icon" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -65,7 +66,9 @@
     }
 
     @keyframes spin {
-      to { transform: rotate(360deg); }
+      to {
+        transform: rotate(360deg);
+      }
     }
 
     /* Scroll to top button */
@@ -257,6 +260,7 @@
       padding: 160px 20px 100px;
       background: url("./backimg/formimg.jpg") no-repeat center/cover;
     }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -353,33 +357,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    /* Social Media Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 30px;
-      animation: fadeIn 1s ease 1.2s both;
-    }
-
-    .social-links a {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      color: white;
-      font-size: 18px;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      background: linear-gradient(135deg, #ff0077, #3b82f6);
-      transform: translateY(-5px);
     }
 
     /* Footer */
@@ -521,20 +498,6 @@
         <a href="html/login.html" class="btn">Learn More</a>
         <a href="html/contact.html" class="btn">Contact Me</a>
       </div>
-      <div class="social-links">
-        <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -571,7 +534,7 @@
     });
 
     // Navbar scroll effect
-    $(window).scroll(function() {
+    $(window).scroll(function () {
       if ($(this).scrollTop() > 50) {
         $('#navbar').addClass('scrolled');
       } else {
@@ -580,7 +543,7 @@
     });
 
     // Scroll to top button
-    $(window).scroll(function() {
+    $(window).scroll(function () {
       if ($(this).scrollTop() > 300) {
         $('#scrollTop').addClass('active');
       } else {
@@ -588,8 +551,8 @@
       }
     });
 
-    $('#scrollTop').click(function() {
-      $('html, body').animate({scrollTop: 0}, 800);
+    $('#scrollTop').click(function () {
+      $('html, body').animate({ scrollTop: 0 }, 800);
       return false;
     });
 
@@ -621,5 +584,4 @@
     });
   </script>
 </body>
-
 </html>
