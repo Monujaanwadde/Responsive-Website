@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me Page</title>
+  <meta name="description" content="Responsive About Me Page with Validation" />
+  <meta name="keywords" content="About Me Page, Responsive Page, HTML, CSS, JS" />
+  <meta name="author" content="Monujaan Wadde" />
+  <link href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: url("../img/color13.jpg") no-repeat center/cover;
+    }
+
+    section {
+      padding: 20px 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .title {
+      text-align: center;
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 60px;
+      position: relative;
+      color: #ffffff;
+    }
+
+    .title::before {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      width: 180px;
+      height: 3px;
+      background: #ffffff;
+      transform: translateX(-50%);
+    }
+
+    .title::after {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      font-size: 20px;
+      color: crimson;
+      background: #fff;
+      padding: 0 10px;
+      transform: translateX(-50%);
+    }
+
+    /* About Section */
+    .about .title::after {
+      content: "who i am";
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .about .left {
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .about .left img {
+      width: 100%;
+      height: auto;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .contact-info {
+      margin-top: 15px;
+      background: rgba(230, 229, 229, 0.9);
+      padding: 20px;
+      border-radius: 6px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+      color: #111 !important;
+      font-weight: 500;
+    }
+
+    .contact-info i {
+      margin-right: 8px;
+      color: crimson;
+    }
+
+    .resume-button {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: crimson;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .resume-button:hover {
+      background: #ffffff;
+      border: 2px solid rgb(255, 255, 255);
+      color: rgb(255, 0, 0);
+    }
+
+    .about .right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .about .text {
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+
+    .about .text strong {
+      color: blue;
+    }
+
+    .about .text span {
+      color: crimson;
+    }
+
+    .about p {
+      font-size: 17px;
+      text-align: justify;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .about .learn-btn {
+      display: inline-block;
+      background: crimson;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-right: 10px;
+    }
+
+    .about .learn-btn:hover {
+      background: #ffffff;
+      border: 2px solid rgb(255, 255, 255);
+      color: rgb(255, 0, 0);
+    }
+
+    /* Skills Section */
+    .skills .title::after {
+      content: "what I know";
+    }
+
+    .skills-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .skills-content .column {
+      width: calc(50% - 30px);
+    }
+
+    .skills-content .left .text {
+      font-size: 30px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .skills-content .left p {
+      font-size: 18px;
+      text-align: justify;
+      color: #fff;
+    }
+
+    .skills-content .left a {
+      display: inline-block;
+      background: crimson;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      padding: 10px 30px;
+      margin-top: 20px;
+      border-radius: 6px;
+      border: 2px solid crimson;
+      transition: 0.3s ease;
+      text-decoration: none;
+    }
+
+    .skills-content .left a:hover {
+      background: #ffffff;
+      border: 2px solid rgb(255, 255, 255);
+      color: rgb(255, 0, 0);
+    }
+
+    .skills-content .right .bars {
+      margin-bottom: 15px;
+    }
+
+    .skills-content .right .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+
+    .skills-content .right .info span {
+      font-weight: 500;
+      font-size: 18px;
+      color: #00ff40;
+    }
+
+    .skills-content .right .line {
+      height: 5px;
+      width: 100%;
+      background: lightgrey;
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .skills-content .right .line::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background: crimson;
+    }
+
+    /* Skill widths (static) */
+    .html::before {
+      width: 90%;
+    }
+
+    .css::before {
+      width: 80%;
+    }
+
+    .js::before {
+      width: 70%;
+    }
+
+    .c::before {
+      width: 80%;
+    }
+
+    .python::before {
+      width: 70%;
+    }
+
+    .java::before {
+      width: 70%;
+    }
+
+    .Shell::before {
+      width: 40%;
+    }
+
+    .sharp::before {
+      width: 50%;
+    }
+
+    .mysql::before {
+      width: 60%;
+    }
+
+    .sql::before {
+      width: 60%;
+    }
+
+    .exel::before {
+      width: 70%;
+    }
+
+    .word::before {
+      width: 70%;
+    }
+
+    .press::before {
+      width: 50%;
+    }
+
+    .hacking::before {
+      width: 50%;
+    }
+
+    /* Footer */
+    footer {
+      font-size: 18px;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      background: #111 url("../img/color9.jpg") no-repeat center/cover;
+    }
+
+    footer strong {
+      color: rgb(0, 255, 26);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .title {
+        font-size: 32px;
+      }
+
+      .about .text {
+        font-size: 22px;
+      }
+
+      .skills-content .left .text {
+        font-size: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .about .right {
+        margin-top: 20px;
+      }
+
+      .skills-content {
+        flex-direction: column;
+      }
+
+      .skills-content .column {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 15px;
+      }
+
+      .title {
+        font-size: 26px;
+        margin-bottom: 40px;
+      }
+
+      .about .text {
+        font-size: 20px;
+      }
+
+      .skills-content .left .text {
+        font-size: 20px;
+      }
+
+      footer {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2 class="title">About me</h2>
+    <div class="about-content">
+      <div class="left">
+        <img src="../img/monu.jpg" alt="Monujaan Wadde" />
+        <div class="contact-info">
+          <p><i class="uil uil-phone"></i>+91 8770219703</p>
+          <p><i class="uil uil-envelope"></i>monujaanwadde360@gmail.com</p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="text">I'm Monujaan Wadde and I'm a <strong>Web</strong> <span class="typing"></span></div>
+        <p>Hello, my name is Monujaan Wadde, and I am originally from Chhattisgarh, namely Narayanpur, Kanagaon...</p>
+        <p>I completed my schooling at Ramakrishna Mission, then pursued B.Sc. Computer Science at Ramakrishna Mission
+          Vidyamandira in West Bengal.</p>
+        <p>As a developer, I love creating dynamic web applications, coding systems, and user-friendly designs.</p>
+        <a href="#skills" class="learn-btn">My Skills ↓</a>
+        <a class="resume-button" href="../img/resume.pdf" download>⬇️ Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <h2 class="title">Skills</h2>
+    <div class="skills-content">
+      <div class="column left">
+        <div class="text">My creative skills & experiences.</div>
+        <p>With knowledge of HTML, CSS, JavaScript, Java, Python, C, and C#, I design visually engaging and responsive
+          web applications. I also work with databases like MySQL and SQL to build robust backend systems.</p>
+        <p>Beyond development, I am proficient in productivity tools like Excel and MS Word. My awareness of
+          cybersecurity and ethical hacking gives me the edge to build secure systems.</p>
+        <a href="#about">← Back to About</a>
+      </div>
+
+      <div class="column right">
+        <div class="bars">
+          <div class="info"><span>HTML</span><span>90%</span></div>
+          <div class="line html"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>CSS</span><span>80%</span></div>
+          <div class="line css"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>JavaScript</span><span>70%</span></div>
+          <div class="line js"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>C</span><span>80%</span></div>
+          <div class="line c"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>Python</span><span>70%</span></div>
+          <div class="line python"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>Java</span><span>70%</span></div>
+          <div class="line java"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>Shell Scripting</span><span>40%</span></div>
+          <div class="line Shell"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>C#</span><span>50%</span></div>
+          <div class="line sharp"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>MySQL</span><span>60%</span></div>
+          <div class="line mysql"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>SQL</span><span>60%</span></div>
+          <div class="line sql"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>Excel</span><span>70%</span></div>
+          <div class="line exel"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>MS Word</span><span>70%</span></div>
+          <div class="line word"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>WordPress</span><span>50%</span></div>
+          <div class="line press"></div>
+        </div>
+        <div class="bars">
+          <div class="info"><span>Hacking</span><span>50%</span></div>
+          <div class="line hacking"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Designed by <strong>Monujaan Wadde</strong> &copy; <span id="year"></span></p>
+  </footer>
+
+  <script>
+    // Typing effect
+    new Typed(".typing", {
+      strings: ["Developer", "Designer"],
+      typeSpeed: 100,
+      backSpeed: 60,
+      loop: true
+    });
+
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>
