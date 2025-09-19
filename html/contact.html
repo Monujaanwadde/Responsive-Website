@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
   <style>
     * {
       margin: 0;
@@ -21,15 +22,21 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    html,
     body {
-      background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
-      color: #fff !important;
-      font-family: 'Poppins', sans-serif;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
       margin: 0;
-      padding: 0;
     }
 
-    section {
+    body {
+      background-image: linear-gradient(to top, #0250c5 0%, #d43f8d 100%);
+      color: #fff;
+    }
+
+    section.contact {
+      flex: 1; /* pushes footer down */
       padding: 10px 20px;
     }
 
@@ -50,7 +57,7 @@
       transform: translateX(-50%);
       width: 180px;
       height: 3px;
-      background: rgb(255, 255, 255);
+      background: #fff;
     }
 
     .title::after {
@@ -61,7 +68,7 @@
       transform: translateX(-50%);
       font-size: 18px;
       color: crimson;
-      background: #ffffff;
+      background: #fff;
       padding: 0 15px;
     }
 
@@ -78,14 +85,6 @@
     .column {
       flex: 1 1 45%;
       min-width: 300px;
-    }
-
-    .column.left {
-      padding-right: 20px;
-    }
-
-    .column.right {
-      padding-left: 20px;
     }
 
     .column.left .text,
@@ -156,7 +155,7 @@
       border-radius: 6px;
       font-size: 17px;
       background: #e0e0e0;
-      color: #000000;
+      color: #000;
       outline: none;
     }
 
@@ -223,15 +222,20 @@
 
     /* Footer */
     footer {
-      font-size: 18px;
+      font-size: 16px;
       text-align: center;
-      padding: 10px;
-      background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+      padding: 15px;
+      background-image: linear-gradient(to right, #00c6ff 0%, #0072ff  51%, #00c6ff  100%);
       color: #fff;
+      width: 100%;
     }
 
     footer strong {
-      color: #08ff41;
+      color: #00ff08;
+    }
+
+    footer span {
+      color: #ffeb3b;
     }
 
     /* Responsive */
@@ -276,9 +280,9 @@
     <div class="contact-content">
       <div class="column left">
         <div class="text">Get in Touch</div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-          Nostrum sed tempora vitae dolor explicabo. Consequuntur dolorum, 
-          assumenda nulla necessitatibus impedit expedita suscipit repudiandae odio 
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Nostrum sed tempora vitae dolor explicabo. Consequuntur dolorum,
+          assumenda nulla necessitatibus impedit expedita suscipit repudiandae odio
           inventore voluptates sed facilis rem deleniti?</p>
 
         <div class="icons">
@@ -286,14 +290,14 @@
             <i class="fas fa-user"></i>
             <div class="info">
               <div class="head">Name</div>
-              <div class="sub-title">Your name</div>
+              <div class="sub-title">Monujaan Wadde</div>
             </div>
           </div>
           <div class="row">
             <i class="fas fa-map-marker-alt"></i>
             <div class="info">
               <div class="head">Address</div>
-              <div class="sub-title">Address here</div>
+              <div class="sub-title">Your Address Here</div>
             </div>
           </div>
           <div class="row">
